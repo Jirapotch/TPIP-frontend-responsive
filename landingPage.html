@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TPIT</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Roboto;
+        }
+
+        .title-head {
+            font-size: 90px;
+            font-weight: 400;
+            line-height: 105px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #E7E7E7;
+            margin-bottom: 50px;
+            margin-top: 30px;
+
+            @media only screen and (max-width: 1024px) {
+                margin-top: 70px;
+            }
+
+            @media only screen and (max-width: 500px) {
+                margin-top: 0px;
+                font-size: 50px;
+            }
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 42px;
+            letter-spacing: 1.5px;
+            color: #C2C2C2;
+
+            @media only screen and (max-width: 500px) {
+                font-size: 28px;
+                line-height: 32px;
+            }
+        }
+
+        .li1::before {
+            content: "01";
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 21px;
+            letter-spacing: 1.5px;
+            text-align: left;
+            color: #000;
+            text-decoration: underline solid #603EBE 50%;
+        }
+
+        .li-underline {
+            font-size: 18px;
+            line-height: 0px;
+            background: transparent;
+            border-radius: 5px;
+            height: 5px;
+            box-shadow: 0 10px 0 0 #fff;
+            margin-right: 8px;
+        }
+
+        .li-underline-purple {
+            font-size: 18px;
+            line-height: 0px;
+            background: transparent;
+            border-radius: 5px;
+            height: 5px;
+            box-shadow: 0 10px 0 0 #603EBE;
+            margin-right: 8px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: 0px;
+            max-width: 80%;
+
+            @media only screen and (max-width: 768px) {
+                max-width: 100%;
+            }
+        }
+
+        .content-box {
+            position: relative;
+            overflow: hidden;
+
+            @media only screen and (max-width: 500px) {
+                display: none;
+            }
+        }
+
+        .content-box-mobile {
+            position: relative;
+            overflow: hidden;
+
+            @media only screen and (min-width: 501px) {
+                display: none;
+            }
+        }
+
+        .background-grid {
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        .grid-item {
+            padding: 30px;
+
+            @media only screen and (max-width: 768px) {
+                padding: 20px;
+            }
+        }
+
+        .athlets-space {
+            width: 50%;
+            z-index: 100;
+
+            @media only screen and (max-width: 768px) {
+                width: 60%;
+            }
+        }
+
+        .athlets-free-space {
+            width: 50%;
+
+            @media only screen and (max-width: 768px) {
+                width: 40%;
+            }
+        }
+
+        .player-space {
+            width: 37.5%;
+            z-index: 100;
+
+            @media only screen and (max-width: 1024px) {
+                width: 65%;
+            }
+
+            @media only screen and (max-width: 768px) {
+                width: 70%;
+            }
+        }
+
+        .player-free-space-before {
+            width: 12.5%;
+
+            @media only screen and (max-width: 1024px) {
+                width: 5%;
+            }
+
+            @media only screen and (max-width: 768px) {
+                width: 0%;
+                padding: 0px;
+            }
+        }
+
+        .player-free-space-after {
+            width: 50%;
+
+            @media only screen and (max-width: 768px) {
+                width: 30%;
+            }
+        }
+
+        .footballer-group {
+            position: absolute;
+            right: 50%;
+            height: 950px;
+            width: 678px;
+
+            @media only screen and (max-width: 768px) {
+                margin-top: 70px;
+                right: 45%;
+                scale: 0.9;
+            }
+        }
+
+        .image-footballer {
+            position: absolute;
+            z-index: 20;
+
+            @media only screen and (max-width: 500px) {
+                height: 281px;
+                width: 200px;
+            }
+        }
+
+        .path45-footballer {
+            position: absolute;
+            right: 40%;
+            top: -20px;
+            border-left: 6px solid #936EEA;
+            height: 400px;
+            transform: rotate(45deg);
+            z-index: 10;
+
+            @media only screen and (min-width: 769px) {
+                display: none;
+            }
+
+            @media only screen and (max-width: 500px) {
+                right: 50%;
+                top: 110px;
+                border-left-width: 3px;
+                height: 266px;
+            }
+        }
+
+        .rectangle-footballer {
+            position: absolute;
+
+            @media only screen and (min-width: 769px) {
+                display: none;
+            }
+        }
+
+        .rectangle-footballer::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: #9173E6;
+            height: 16px;
+            top: 0;
+            left: 6px;
+            z-index: 9;
+            width: 3px;
+        }
+
+        .rectangle-footballer::before {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: #9173E6;
+            width: 16px;
+            left: 0;
+            top: 6px;
+            z-index: 8;
+            height: 3px;
+        }
+
+        .basketball-group {
+            position: absolute;
+            right: 0;
+            width: 991px;
+            height: 815px;
+
+            @media only screen and (max-width: 768px) {
+                left: 30%;
+                scale: 0.7;
+            }
+        }
+
+        .image-basketball {
+            position: absolute;
+            right: 6%;
+            z-index: 20;
+
+            @media only screen and (max-width: 500px) {
+                height: 250px;
+                width: 302px;
+                right: unset;
+            }
+
+        }
+
+        .path45-basketball {
+            position: absolute;
+            right: 25%;
+            top: 5%;
+            border-left: 6px solid #936EEA;
+            height: 400px;
+            transform: rotate(45deg);
+            z-index: 10;
+
+            @media only screen and (max-width: 500px) {
+                right: 64%;
+                top: 67%;
+                border-left-width: 3px;
+                height: 162px;
+            }
+        }
+
+        .path45Copy-basketball {
+            position: absolute;
+            left: 25%;
+            top: 50%;
+            border-left: 6px solid #936EEA;
+            height: 400px;
+            transform: rotate(45deg);
+            z-index: 10;
+
+            @media only screen and (max-width: 500px) {
+                right: unset;
+                top: 60%;
+                left: 70%;
+                border-left-width: 3px;
+                height: 118px;
+            }
+        }
+
+        .rectangle-basketball {
+            position: absolute;
+            opacity: 1;
+
+            @media only screen and (max-width: 768px) {
+                opacity: 0.5;
+            }
+        }
+
+        .rectangle-basketball::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: #9173E6;
+            height: 16px;
+            top: 0;
+            left: 6px;
+            z-index: 9;
+            width: 3px;
+        }
+
+        .rectangle-basketball::before {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: #9173E6;
+            width: 16px;
+            left: 0;
+            top: 6px;
+            z-index: 8;
+            height: 3px;
+        }
+
+        .rectangle-basketball2 {
+            position: absolute;
+            opacity: 0.5;
+
+            @media only screen and (max-width: 768px) {
+                opacity: 1;
+            }
+        }
+
+        .rectangle-basketball2::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: #9173E6;
+            height: 16px;
+            top: 0;
+            left: 6px;
+            z-index: 9;
+            width: 3px;
+        }
+
+        .rectangle-basketball2::before {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: #9173E6;
+            width: 16px;
+            left: 0;
+            top: 6px;
+            z-index: 8;
+            height: 3px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-inner {
+            width: 100%;
+            display: flex;
+            transition: transform 0.5s;
+            text-align: left;
+        }
+
+        .carousel-inner-2 {
+            width: 100%;
+            display: flex;
+            transition: transform 0.5s;
+            text-align: left;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .carousel-controls .next {
+            order: 1;
+        }
+
+        .carousel-controls .prev {
+            order: 2;
+        }
+
+        .dot-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot2 {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #5C3CAF;
+        }
+
+        .dot2.active {
+            background-color: #5C3CAF;
+        }
+    </style>
+</head>
+
+<body style="margin: 0px;">
+    <!-- Desktop and Tablet -->
+    <div class="content-box">
+        <!-- ATHLETS -->
+        <div class="background-grid">
+            <div class="grid-item athlets-free-space">
+                <div class="footballer-group">
+                    <div class="rectangle-footballer" style="top: 5px; right: 376px;"></div>
+                    <div class="rectangle-footballer" style="opacity: 0.5; top: -10px; right: 400px;"></div>
+                    <img src="image\footballer.png" alt="footballer" class="image-footballer">
+                    <div class="path45-footballer"></div>
+                </div>
+            </div>
+            <div class="grid-item athlets-space">
+                <div class="title-head">ATHLETS</div>
+                <div style="display: flex; align-items: center;">
+                    <div class="li-underline-purple">01</div>
+                    <h1>CONNECTION</h1>
+                </div>
+                <p>Connect with coaches directly, you can ping coaches to view profile.</p>
+            </div>
+        </div>
+        <div class="background-grid" style="background-color: #F5F4F9;">
+            <div class="grid-item athlets-free-space"></div>
+            <div class="grid-item athlets-space">
+                <div style="display: flex; align-items: center;">
+                    <div class="li-underline-purple">02</div>
+                    <h1>COLLABORATION</h1>
+                </div>
+                <p>Work with other student athletes to  increase visability. When you share and like other players
+                    videos it
+                    will increase your visability as a player. This is the team work aspect to Surface 1.</p>
+            </div>
+        </div>
+        <div class="background-grid" style="background-color: #5E3DB3;">
+            <div class="grid-item athlets-free-space"></div>
+            <div class="grid-item athlets-space">
+                <div style="display: flex; align-items: center;">
+                    <div class="li-underline">03</div>
+                    <h1>GROWTH</h1>
+                </div>
+                <p style="color: #fff;">Resources and tools for you to get better as a student Athelte. Access to
+                    training
+                    classes, tutor sessions, etc</p>
+            </div>
+        </div>
+
+        <!-- PLAYERS -->
+        <div class="basketball-group">
+            <div class="rectangle-basketball" style="top: 16%; left: 22%;"></div>
+            <div class="rectangle-basketball2" style="top: 18%; left: 24%;"></div>
+            <div class="rectangle-basketball" style="top: 50%; left: 72%;"></div>
+            <img src="image\basketball.png" alt="basketball" class="image-basketball">
+            <div class="path45-basketball"></div>
+            <div class="path45Copy-basketball"></div>
+        </div>
+        <div class="background-grid">
+            <div class="grid-item player-free-space-before"></div>
+            <div class="grid-item player-space">
+                <div class="title-head">PLAYERS</div>
+                <div style="display: flex; align-items: center;">
+                    <div class="li-underline-purple">01</div>
+                    <h1>CONNECTION</h1>
+                </div>
+                <p>Connect with talented athlete directly, you can watch their skills through video showreels directly
+                    from
+                    Surface 1.</p>
+            </div>
+            <div class="grid-item player-free-space-after"></div>
+        </div>
+        <div class="background-grid" style="background-color: #F5F4F9;">
+            <div class="grid-item player-free-space-before"></div>
+            <div class="grid-item player-space">
+                <div style="display: flex; align-items: center;">
+                    <div class="li-underline-purple">02</div>
+                    <h1>COLLABORATION</h1>
+                </div>
+                <p>Work with recruiter to increase your chances of finding talented athlete.</p>
+            </div>
+            <div class="grid-item player-free-space-after"></div>
+        </div>
+        <div class="background-grid" style="background-color: #090C35;">
+            <div class="grid-item player-free-space-before"></div>
+            <div class="grid-item player-space">
+                <div style="display: flex; align-items: center;">
+                    <div class="li-underline" style="color: #8F6BE8;">03</div>
+                    <h1>GROWTH</h1>
+                </div>
+                <p style="color: #fff;">Save your time, recruit proper athlets for your team.</p>
+            </div>
+            <div class="grid-item player-free-space-after"></div>
+        </div>
+    </div>
+
+    <!-- Mobile -->
+    <div class="content-box-mobile">
+        <!-- ATHLETS -->
+        <div class="background-grid" style="flex-direction: column; height: 350px;">
+            <div class="title-head" style="padding: 0px 20px; margin-bottom: 0px;">ATHLETS</div>
+            <div style="display: flex; justify-content: center;">
+                <div class="rectangle-footballer" style="top: 165px; right: 70%;"></div>
+                <div class="rectangle-footballer" style="opacity: 0.5; top: 155px; right: 77%;"></div>
+                <img src="image\footballer.png" alt="footballer" class="image-footballer" width="200px" height="281px">
+                <div class="path45-footballer"></div>
+            </div>
+        </div>
+        <div style="background-color: #F5F4F9; padding: 40px 20px 20px 20px;">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="li-underline-purple">01</div>
+                            <h1>CONNECTION</h1>
+                        </div>
+                        <p>Connect with coaches directly, you can ping coaches to view profile.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="li-underline-purple">02</div>
+                            <h1>COLLABORATION</h1>
+                        </div>
+                        <p>Work with other student athletes to increase visability. When you share and like other
+                            players videos it will increase your visability as a player. This is the team work aspect to
+                            Surface 1.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="li-underline-purple">03</div>
+                            <h1>GROWTH</h1>
+                        </div>
+                        <p>Resources and tools for you to get better as a student Athelte. Access to training classes,
+                            tutor sessions, etc</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <div class="arrow prev" style="display: none;">&larr;</div>
+                <div class="arrow next" style="display: none;">&rarr;</div>
+            </div>
+            <div class="dot-container">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- PLAYERS -->
+        <div class="background-grid" style="flex-direction: column; height: 350px;">
+            <div class="title-head" style="padding: 0px 20px; margin-bottom: 0px;">PLAYERS</div>
+            <div style="display: flex; justify-content: center;">
+                <div class="rectangle-basketball2" style="top: 62%; left: 30%;"></div>
+                <div class="rectangle-basketball" style="top: 61%; left: 24%;"></div>
+                <div class="rectangle-basketball2" style="top: 73%; left: 78%;"></div>
+                <img src="image\basketball.png" alt="basketball" class="image-basketball" width="302px" height="250px">
+                <div class="path45-basketball"></div>
+                <div class="path45Copy-basketball"></div>
+            </div>
+        </div>
+        <div style="background-color: #F5F4F9; padding: 40px 20px 20px 20px;">
+            <div class="carousel">
+                <div class="carousel-inner-2">
+                    <div class="carousel-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="li-underline-purple">01</div>
+                            <h1>CONNECTION</h1>
+                        </div>
+                        <p>Connect with coaches directly, you can ping coaches to view profile.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="li-underline-purple">02</div>
+                            <h1>COLLABORATION</h1>
+                        </div>
+                        <p>Work with recruiter to increase your chances of finding talented athlete</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="li-underline-purple">03</div>
+                            <h1>GROWTH</h1>
+                        </div>
+                        <p>Save your time, recruit proper athlets for your team.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <div class="arrow prev" style="display: none;">&larr;</div>
+                <div class="arrow next" style="display: none;">&rarr;</div>
+            </div>
+            <div class="dot-container">
+                <div class="dot2 active"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const carouselInner = document.querySelector(".carousel-inner");
+        const carouselInner2 = document.querySelector(".carousel-inner-2");
+        const dots = document.querySelectorAll(".dot");
+        const dots2 = document.querySelectorAll(".dot2");
+
+        let currentIndex = 0;
+        let currentIndex2 = 0;
+
+        function updateCarousel(index) {
+            if (index === 1) {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateDots(1);
+            } else if (index === 2) {
+                carouselInner2.style.transform = `translateX(-${currentIndex2 * 100}%)`;
+                updateDots(2);
+            }
+        }
+
+        function updateDots(index) {
+            if (index === 1) {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle("active", index === currentIndex);
+                });
+            } else if (index === 2) {
+                dots2.forEach((dot, index) => {
+                    dot.classList.toggle("active", index === currentIndex2);
+                });
+            }
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                currentIndex = index;
+                updateCarousel(1);
+            });
+        });
+
+        dots2.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                currentIndex2 = index;
+                updateCarousel(2);
+            });
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartX2 = 0;
+        let touchEndX2 = 0;
+
+        carouselInner.addEventListener("touchstart", (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        carouselInner.addEventListener("touchend", (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe(1);
+        });
+
+        carouselInner2.addEventListener("touchstart", (e) => {
+            touchStartX2 = e.touches[0].clientX;
+        });
+
+        carouselInner2.addEventListener("touchend", (e) => {
+            touchEndX2 = e.changedTouches[0].clientX;
+            handleSwipe(2);
+        });
+
+        function handleSwipe(index) {
+            if (index === 1) {
+                if (touchEndX < touchStartX) {
+                    currentIndex = Math.min(currentIndex + 1, 2);
+                    updateCarousel(1);
+                } else if (touchEndX > touchStartX) {
+                    currentIndex = Math.max(currentIndex - 1, 0);
+                    updateCarousel(1);
+                }
+            } else if (index === 2) {
+                if (touchEndX2 < touchStartX2) {
+                    currentIndex2 = Math.min(currentIndex2 + 1, 2);
+                    updateCarousel(2);
+                } else if (touchEndX2 > touchStartX) {
+                    currentIndex2 = Math.max(currentIndex2 - 1, 0);
+                    updateCarousel(2);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
